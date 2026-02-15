@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap");
 
 :root {
-  --lab-primary: #1f4fa3;
-  --lab-primary-dark: #173c7c;
-  --lab-text: #1f2937;
-  --lab-border: #d7deea;
+  --lab-primary: #2258b3;
+  --lab-primary-dark: #1a4388;
+  --lab-text: #1d2635;
+  --lab-border: #c8d2e3;
   --lab-surface: #ffffff;
-  --lab-bg: #f4f7fc;
+  --lab-bg: #e9edf3;
   --lab-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
   --bs-body-bg: var(--lab-bg);
   --bs-body-color: var(--lab-text);
@@ -18,7 +18,9 @@ body {
   font-family: "Noto Sans JP", "BIZ UDPGothic", "Yu Gothic UI", "Meiryo", "Segoe UI", sans-serif;
   background: var(--lab-bg);
   color: var(--lab-text);
-  line-height: 1.7;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  font-size: 16px;
   padding-left: 250px;
 }
 
@@ -43,7 +45,7 @@ a:hover {
   width: 250px;
   height: 100vh;
   z-index: 1030;
-  background: #f9fbff;
+  background: #f6f9ff;
   border-right: 1px solid var(--lab-border);
   border-bottom: none;
   overflow-y: auto;
@@ -101,12 +103,12 @@ a:hover {
 .navbar .nav-link {
   display: block;
   color: #334155;
-  padding: 0.5rem 0.65rem;
+  padding: 0.52rem 0.68rem;
   border: 1px solid transparent;
   width: 100%;
   white-space: nowrap;
   word-break: keep-all;
-  border-radius: 0.5rem;
+  border-radius: 0.35rem;
   transition: all 0.18s ease;
 }
 
@@ -120,7 +122,7 @@ a:hover {
   color: var(--lab-primary);
   font-weight: 700;
   border-color: #bfd3fb;
-  background: #e8f0ff;
+  background: #e4edff;
   box-shadow: inset 3px 0 0 var(--lab-primary);
   text-decoration: none;
 }
@@ -133,23 +135,41 @@ a:hover {
   background-size: contain;
   background-repeat: no-repeat;
   color: #ffffff;
-  min-height: 360px;
+  min-height: 390px;
   padding: 2.3rem 0 1.4rem;
   border: 1px solid #9ab1d8;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
 }
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, rgba(8, 20, 44, 0.55), rgba(8, 20, 44, 0.22));
+  background: linear-gradient(100deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.02) 55%, rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 26, 54, 0.22);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 56%, rgba(0, 0, 0, 0.15) 70%, transparent 84%);
+  mask-image: linear-gradient(90deg, #000 0%, #000 40%, rgba(0, 0, 0, 0.5) 56%, rgba(0, 0, 0, 0.15) 70%, transparent 84%);
   pointer-events: none;
 }
 
 .hero .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  max-width: 780px;
+  margin-left: 0;
+  padding: 1rem 1.1rem;
+  background: transparent;
+  border-left: 3px solid rgba(158, 192, 255, 0.85);
+  border-radius: 0;
 }
 
 .hero .lead {
@@ -163,10 +183,14 @@ a:hover {
 }
 
 .section-card {
-  border: 1px solid var(--lab-border);
-  border-radius: 0.75rem;
-  box-shadow: var(--lab-shadow);
+  border: 1px solid #cfd7e5;
+  border-radius: 0;
+  box-shadow: none;
   background: var(--lab-surface);
+}
+
+.section-card .card-body {
+  padding: 1.35rem 1.45rem;
 }
 
 .section-title {
@@ -174,7 +198,16 @@ a:hover {
   font-weight: 700;
   border-left: 4px solid var(--lab-primary);
   padding-left: 0.55rem;
-  margin-bottom: 0.9rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+main .container {
+  padding-top: 0.2rem;
+}
+
+main .row.g-4 {
+  row-gap: 1.5rem;
 }
 
 .card-body a {
@@ -187,6 +220,23 @@ a:hover {
   border-top: 1px solid #ececec;
 }
 
+.publication-item {
+  line-height: 1.65;
+}
+
+.table {
+  margin-bottom: 0.4rem;
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.62rem 0.55rem;
+}
+
+.table th {
+  color: #224f9e;
+  font-weight: 700;
+}
+
 .list-group-item {
   border: 1px solid var(--lab-border);
 }
@@ -194,14 +244,15 @@ a:hover {
 footer {
   margin-top: 2rem;
   border-top: 1px solid #c9d7f1;
-  background: #eef3fb;
-  color: #41526f;
+  background: #e8eef9;
+  color: #3b4c6a;
   border-radius: 0.75rem 0.75rem 0 0;
 }
 
 @media (max-width: 991.98px) {
   body {
     padding-left: 0;
+    font-size: 15.5px;
   }
 
   .navbar {
@@ -265,13 +316,29 @@ footer {
   .navbar .navbar-collapse.show .nav-link {
     border: 1px solid var(--lab-border);
     background: #fff;
+    padding: 0.58rem 0.68rem;
     white-space: normal;
     word-break: break-word;
   }
 
   .hero {
-    min-height: 220px;
+    min-height: 230px;
     background-size: contain;
+    border-radius: 0.35rem;
+  }
+
+  .hero .container {
+    max-width: none;
+    padding: 0.7rem 0.8rem;
+  }
+
+  main .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .section-card .card-body {
+    padding: 1rem 1.05rem;
   }
 }
 
